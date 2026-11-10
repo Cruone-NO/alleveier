@@ -2,49 +2,51 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Alle Veier</title>
+    <title>Alle Veier - Etappe 1</title>
+    <!-- Leaflet CSS for interaktiv kartvisning -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body {
             background-color: #22c55e;
             font-family: sans-serif;
             text-align: center;
-            padding: 40px 20px;
+            padding: 20px;
             color: #ffffff;
             margin: 0;
         }
         .vits-boks {
             background-color: #facc15;
             color: #000000;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             max-width: 500px;
-            margin: 0 auto 30px auto;
-            font-size: 1.2rem;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+        h1 {
+            margin-bottom: 5px;
+        }
+        p.undertittel {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+        .kart-boks {
+            max-width: 700px;
+            height: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border: 3px solid #ffffff;
+        }
         .bilde-container {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 20px auto;
         }
         img {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="vits-boks">
-        Hva sa den ene snømannen til den andre?<br>
-        – Kjenner du også at det lukter gulerot her?
-    </div>
-
-    <div class="bilde-container">
-        <img src="bilde.jpg" alt="Katt åpner julegave fra bestefar som er en hest under juletreet">
-    </div>
-
-</body>
-</html>
+            box-shadow:
