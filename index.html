@@ -34,6 +34,7 @@
             color: #e2e8f0;
         }
         .kart-boks {
+            width: 90%;
             max-width: 700px;
             height: 400px;
             margin: 20px auto;
@@ -41,12 +42,51 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.3);
             border: 3px solid #ffffff;
         }
-        .bilde-container {
-            max-width: 600px;
-            margin: 20px auto;
-        }
-        img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow:
+    </style>
+</head>
+<body>
+
+    <div class="vits-boks">
+        Hva sa den ene snømannen til den andre?<br>
+        – Kjenner du også at det lukter gulerot her?
+    </div>
+
+    <h1>Etappe 1: Mandal</h1>
+    <p class="undertittel">Utforsk ruten ved å dra med musen eller zoome inn og ut.</p>
+
+    <!-- Interaktivt kart -->
+    <div id="kart" class="kart-boks"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialiser kartet sentrert rundt Mandal
+        var kart = L.map('kart').setView([58.0314, 7.4595], 14);
+
+        // Legg til OpenStreetMap bakgrunn
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap-bidragsytere'
+        }).addTo(kart);
+
+        // Rute-koordinater for etappe 1
+        var ruteKoordinater = [
+            [58.0314, 7.4595],
+            [58.0312, 7.4605],
+            [58.0305, 7.4615],
+            [58.0298, 7.4625],
+            [58.0294, 7.4650],
+            [58.0301, 7.4700],
+            [58.0308, 7.4750],
+            [58.0315, 7.4820]
+        ];
+
+        // Tegn ruten som en rød strek
+        var polyline = L.polyline(ruteKoordinater, {color: '#ef4444', weight: 6}).addTo(kart);
+
+        // Tilpass visningen til ruten
+        kart.fitBounds(polyline.getBounds());
+    </script>
+
+</body>
+</html>
