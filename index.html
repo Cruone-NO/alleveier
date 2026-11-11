@@ -2,73 +2,197 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Alle Veier - Etappe 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alle Veier – Etappe 1: Med en øl i tårnet</title>
     <!-- Leaflet CSS for interaktiv kartvisning -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
+        :root {
+            --primary-color: #22c55e;
+            --dark-color: #1e293b;
+            --light-bg: #f8fafc;
+            --accent-color: #facc15;
+            --text-color: #334155;
+        }
         body {
-            background-color: #22c55e;
-            font-family: sans-serif;
-            text-align: center;
-            padding: 20px;
-            color: #ffffff;
+            background-color: var(--light-bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
             margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bilde.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        header p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
         .vits-boks {
-            background-color: #facc15;
-            color: #000000;
-            padding: 15px;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 0 auto 20px auto;
+            background-color: var(--accent-color);
+            color: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
             font-size: 1.1rem;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        h1 {
-            margin-bottom: 5px;
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        p.undertittel {
+        h2 {
+            color: var(--dark-color);
             margin-top: 0;
-            font-size: 1.1rem;
-            color: #e2e8f0;
+            font-size: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
         }
         .kart-boks {
-            width: 90%;
-            max-width: 700px;
+            width: 100%;
             height: 450px;
-            margin: 20px auto;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 2px solid #e2e8f0;
+        }
+        .etappe-intro {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #475569;
+            background: #f1f5f9;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+        }
+        .bilde-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .bilde-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            border: 3px solid #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .bilde-grid img:hover {
+            transform: scale(1.02);
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="vits-boks">
-        Hva sa den ene snømannen til den andre?<br>
-        – Kjenner du også at det lukter gulerot her?
+    <header>
+        <h1>Alle Veier</h1>
+        <p>Fra Mandal til Roma – Etappe 1: Første steg og tårn-skål!</p>
+    </header>
+
+    <div class="container">
+
+        <div class="vits-boks">
+            Hva sa den ene snømannen til den andre?<br>
+            – Kjenner du også at det lukter gulerot her?
+        </div>
+
+        <!-- Etappe 1 Detaljer -->
+        <section>
+            <h2>Etappe 1: Mandal – Søgne</h2>
+            <div class="etappe-intro">
+                "Ingenting setter tone for en 120-stegs pilegrimstur som å starte med en kald øl på toppen av tårnet før marsjen mot Søgne for alvor tar til."
+            </div>
+            <p><strong>Distanse:</strong> 32.41 km | <strong>Tid:</strong> 8 t 1 min | <strong>Stigning:</strong> 540m</p>
+            <p>Med beina klare og sekken pakket startet reisen fra Mandal. Før vi satte kursen østover, tok vi tradisjonen tro en høytidelig skål med en øl på toppen for å speide ut over landskapet vi skal til fots.</p>
+        </section>
+
+        <!-- Kartseksjon -->
+        <section>
+            <h2>Rute for Etappe 1</h2>
+            <p>Utforsk ruten under – bruk musen til å zoome inn og dra langs den gjennomførte streken.</p>
+            <div id="kart" class="kart-boks"></div>
+        </section>
+
+        <!-- Bildegalleri -->
+        <section>
+            <h2>Øyeblikk fra turen</h2>
+            <div class="bilde-grid">
+                <img src="bilde.jpg" alt="Utsikt og øl fra tårnet">
+                <img src="bilde.jpg" alt="Vandring mot Søgne">
+                <img src="bilde.jpg" alt="God stemning underveis">
+            </div>
+        </section>
+
     </div>
 
-    <h1>Etappe 1: Mandal</h1>
-    <p class="undertittel">Utforsk ruten ved å dra med musen eller zoome inn og ut langs streken.</p>
-
-    <!-- Interaktivt kart -->
-    <div id="kart" class="kart-boks"></div>
+    <footer>
+        <p>&copy; 2026 Alle Veier. Laget for vandringen mot Roma.</p>
+    </footer>
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Initialiser kartet sentrert rundt startpunktet i Mandal
-        var kart = L.map('kart').setView([58.0314, 7.4595], 13);
+        var kart = L.map('kart').setView([58.0314, 7.4595], 11);
 
-        // Legg til OpenStreetMap som bakgrunnskart
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; OpenStreetMap-bidragsytere'
         }).addTo(kart);
 
-        // Nøyaktige rute-koordinater for Etappe 1
-        var ruteKoordinater = [
-            [58.0314,
+        // Gjennomført rute for etappe 1
+        var gjennomførtRute = [
+            [58.0314, 7.4595],
+            [58.0312, 7.4609],
+            [58.0308, 7.4615],
+            [58.0294, 7.4628],
+            [58.0301, 7.4640],
+            [58.0328, 7.4864],
+            [58.0334, 7.4894],
+            [58.0340, 7.4991],
+            [58.0357, 7.5048],
+            [58.0372, 7.5115],
+            [58.0404, 7.5441],
+            [58.0455, 7.5910],
+            [58.0468, 7.6181],
+            [58.0542, 7.6733],
+            [58.0707, 7.6767],
+            [58.0754, 7.7106],
+            [58.0954, 7.7826],
+            [58.0980, 7.8140]
+        ];
+
+        var polyline = L.polyline(gjennomførtRute, {color: '#ef4444', weight: 6}).addTo(kart);
+        kart.fitBounds(polyline.getBounds());
+    </script>
+</body>
+</html>
